@@ -1,1 +1,9 @@
-{}
+{
+  "function": {
+    "crypto2function": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
