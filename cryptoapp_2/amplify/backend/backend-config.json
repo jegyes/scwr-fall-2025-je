@@ -1,4 +1,20 @@
 {
+  "api": {
+    "crypto2api": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "crypto2function"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
     "crypto2function": {
       "build": true,
