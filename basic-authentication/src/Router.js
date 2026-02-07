@@ -1,19 +1,22 @@
-/*src/Container.js*/ 
-/*container component centers the content in the page display*/
+/* src/Router.js */
+import {  Routes, Route } from 'react-router-dom'
 
-import React from 'react'
+import Nav from './Nav'
+import Public from './Public'
+import Profile from './Profile'
+import Protected from './Protected'
 
-const Container = ({ children }) => (
-    <div style={styles.container}>
-        { children }
-    </div>
-)
-
-const styles = {
-    container: {
-        margin: '0 auto',
-        padding: '50px 100px'
-    }
+const Router = () => {    
+  return (
+    <Routes>
+      <Route path="/" element={<Nav/>}>
+        <Route index path="/" element={Public}/>
+        <Route path="/protected" element={<Protected/>} />
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="*" element={<Public/>}/>
+      </Route>
+    </Routes>
+  )
 }
 
-export default Container
+export default Router
