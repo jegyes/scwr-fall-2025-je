@@ -1,10 +1,21 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom';
 import './index.css'
-import App from './App.jsx'
+import Router from './Router.jsx'
+import 'antd/dist/reset.css';
+import '@aws-amplify/ui-react/styles.css'
+
+import { BrowserRouter } from 'react-router-dom';
+
+import { Amplify } from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  </StrictMode>
 )

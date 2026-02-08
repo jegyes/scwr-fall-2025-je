@@ -1,51 +1,55 @@
 /* src/Nav.js */
 // import React from "react"
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Menu } from 'antd'
 import { HomeOutlined, ProfileOutlined, FileProtectOutlined } from 
             '@ant-design/icons'
 
-const Nav = (props) => {
-    const {current}  = props
-    const navLinks = [
+const navLinks = [
         {
             key: "public",
             label: (
-              <>
-                {/* <Link to="/"> */}
+              <Link to="/">
                     <HomeOutlined/>
                     Home
-                {/* </Link> */}
-              </>
-
+                </Link>            
             )
         },
         {
             key: "profile",
             label: (
-                <>
-                {/* <Link to="/profile"> */}
+                <Link to="/profile">
                     <ProfileOutlined/>
                     Profile
-                {/* </Link> */}
-                </>
+                </Link>   
             )
         },
         {
             key: "protected",
             label: (
-                <>
-                {/* <Link to="/protected"> */}
+                <Link to="/protected">
                     <FileProtectOutlined/>
                     Protected
-                {/* </Link> */}
-                </>
+                </Link>  
             )
         }        
     ]
+
+const Nav = () => {
+    const [selected, setSelected]  = useState('public');
+    const location = useLocation();
+    
+    useEffect(() => {
+        const currentPage = location.pathname.split("/")[1];
+        console.log(location);
+        setSelected(currentPage ? currentPage : 'public')
+    }, [location])
+
     return (
         <div>
-            <Menu items={navLinks} selectedKeys={[current]} mode="horizontal"/>
+            <Menu items={navLinks} selectedKeys={[selected]} mode="horizontal"/>
+            <Outlet/>
         </div>
     )
 }

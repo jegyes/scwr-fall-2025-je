@@ -1,17 +1,17 @@
 /* src/Router.js */
 import {  Routes, Route } from 'react-router-dom'
 
-import Nav from './Nav'
-import Public from './Public'
-import Profile from './Profile'
-import Protected from './Protected'
+import Nav from './Nav.jsx'
+import Public from './Public.jsx'
+import Profile from './Profile.jsx'
+import Protected from './Protected.jsx'
 
 const Router = () => {    
   return (
     <Routes>
       <Route path="/" element={<Nav/>}>
-        <Route index path="/" element={Public}/>
-        <Route path="/protected" element={<Protected/>} />
+        <Route index path ="/" element={<Public/>}/>
+        <Route path="/protected" element={<Protected/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="*" element={<Public/>}/>
       </Route>
