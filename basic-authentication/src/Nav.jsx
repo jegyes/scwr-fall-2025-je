@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Menu } from 'antd'
-import { HomeOutlined, ProfileOutlined, FileProtectOutlined } from 
+import { HomeOutlined, ProfileOutlined, FileProtectOutlined, InfoCircleOutlined } from 
             '@ant-design/icons'
 
 const navLinks = [
@@ -33,7 +33,16 @@ const navLinks = [
                     Protected
                 </Link>  
             )
-        }        
+        },       
+        {
+            key: "about",
+            label: (
+                <Link to="/about">
+                    <InfoCircleOutlined/>
+                    About Project 5
+                </Link>  
+            )
+        }       
     ]
 
 const Nav = () => {

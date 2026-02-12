@@ -5,7 +5,8 @@ import Container from './Container'
 function Public() {
     return (
         <Container>
-            <h1>Public Route</h1>
+            <h1>Your are home.</h1>
+            <h2>No login required</h2>
         </Container>
     )
 }

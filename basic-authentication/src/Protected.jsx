@@ -8,7 +8,7 @@ function Protected(props) {
   console.log('You have made it to a protected page', props)    
   return (
     <Container>
-      <h1>Protected route</h1>
+      <h1>Welcome, Authenticated User, to this protected route!</h1>
     </Container>
   );
 }
